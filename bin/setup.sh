@@ -41,7 +41,7 @@ RIGHT_ANGLE="${GREEN}\xE2\x88\x9F${NC}"
 
 
 # ----- Variables -----
-OS=""
+ID=""
 SETUPSTACK_LOG="$HOME/.setupstack.log"
 SETUPSTACK_DIR="$HOME/.setupstack"
 SSH_DIR="$HOME/.ssh"
@@ -100,24 +100,8 @@ function _task_done {
 
 
 
-function update_ansible_galaxy {
-	local os=$1
-	local os_prerequisites=""
-
-	_task "Updating Ansible Galaxy"
-
-	if [ -f "$SETUPSTACK_DIR/prerequisites/$os.yml" ]; then
-		_task "${OVERWRITE}Updating Ansible Galaxy with OS Config: $os"
-		os_prerequisites="$SETUPSTACK_DIR/prerequisites/$os.yml"
-	fi
-
-	_cmd "ansible-galaxy install -r $SETUPSTACK_DIR/prerequisites/common.yml $os_prerequisites"
-}
-
-
-
 # ----- OS Specific Setup Functions -----
-function arch_setup() {
+function arch_setup {
 	if ! [ -x "$(command -v ansible)" ]; then
 		_task "Installing Ansible"
 		_cmd "sudo pacman -Syu --noconfirm"
@@ -128,6 +112,25 @@ function arch_setup() {
 		_task "Installing OpenSSH"
 		_cmd "sudo pacman -S --noconfirm openssh"
 	fi
+
+	_task "Setting Locale"
+	_cmd "sudo localectl set-locale LANG=en_US.UTF-8"
+}
+
+
+
+update_ansible_galaxy() {
+	local os=$1
+	local os_prerequisites=""
+
+	_task "Updating Ansible Galaxy"
+
+	if [ -f "$SETUPSTACK_DIR/prerequisites/$os.yml" ]; then
+   		_task "${OVERWRITE}Updating Ansible Galaxy with OS Config: $os"
+  		os_prerequisites="$SETUPSTACK_DIR/prerequisites/$os.yml"
+	fi
+
+  	_cmd "ansible-galaxy install -r $SETUPSTACK_DIR/prerequisites/common.yml $os_prerequisites"
 }
 
 
@@ -136,7 +139,7 @@ function arch_setup() {
 if [ -f /etc/os-release ]; then
 	source /etc/os-release
 else
-	OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+	ID=$(uname -s | tr '[:upper:]' '[:lower:]')
 fi
 
 # run detected os setup

@@ -1,0 +1,9 @@
+---
+- name: "Neovim | {{ ansible_distribution }} | Install Neovim"
+  ansible.builtin.command:
+    argv:
+      - sudo
+      - pacman
+      - -S
+      - neovim
+      - --noconfirm
