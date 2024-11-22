@@ -16,7 +16,7 @@
         - always
 
     - name: Confirm Windows PowerShell Execution Policy
-      ansible.builtin.import_tasks: pre_tasks/powershell_executionpolicy.yml
+      ansible.builtin.import_tasks: pre_tasks/powershell_execution_policy.yml
       when: ansible_host_environment_is_wsl
       tags:
         - always

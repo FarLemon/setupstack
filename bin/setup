@@ -164,7 +164,7 @@ if ! [[ -d "$SETUPSTACK_DIR" ]]; then
 	_cmd "git clone --quiet https://github.com/FarLemon/setupstack.git $SETUPSTACK_DIR"
 else
 	_task "Updating Local Repository"
-	_cmd "git -C $SETUPSTACK_DIR pull --quiet"
+	_cmd "git -C $SETUPSTACK_DIR pull origin main --quiet"
 fi
 
 pushd "$SETUPSTACK_DIR" 2>&1 > /dev/null
