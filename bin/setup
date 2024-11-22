@@ -118,7 +118,7 @@ function update_ansible_galaxy {
 
 # ----- OS Specific Setup Functions -----
 function arch_setup() {
-	if ! [ -x "$(command -v ansible)" ]: then
+	if ! [ -x "$(command -v ansible)" ]; then
 		_task "Installing Ansible"
 		_cmd "sudo pacman -Syu --noconfirm"
 		_cmd "sudo pacman -S --noconfirm ansible"
