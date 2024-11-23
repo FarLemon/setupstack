@@ -119,7 +119,7 @@ function arch_setup {
 
 
 
-update_ansible_galaxy() {
+function update_ansible_galaxy {
 	local os=$1
 	local os_prerequisites=""
 
