@@ -1,4 +1,5 @@
 default_roles:
+  - ags
   - hypr
   - kitty
   - neovim
