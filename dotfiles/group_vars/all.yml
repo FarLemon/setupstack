@@ -3,3 +3,4 @@ default_roles:
   - hypr
   - kitty
   - neovim
+  - zsh
