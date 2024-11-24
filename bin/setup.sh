@@ -119,6 +119,8 @@ function arch_setup {
 
 
 
+# FIXME: 	os_prerequisites not installing
+# 		task message not properly inserting
 function update_ansible_galaxy {
 	local os=$1
 	local os_prerequisites=""
