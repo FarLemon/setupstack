@@ -9,13 +9,13 @@
         // "checkJs": true,
         // "allowJs": true,
         "jsx": "react-jsx",
-        "jsxImportSource": "/usr/share/astal/gjs/gtk3",
+        "jsxImportSource": "/home/poyehchen/.local/share/ags/gtk3",
         "paths": {
             "astal": [
-                "/usr/share/astal/gjs"
+                "/home/poyehchen/.local/share/ags"
             ],
             "astal/*": [
-                "/usr/share/astal/gjs/*"
+                "/home/poyehchen/.local/share/ags/*"
             ]
         },
     }

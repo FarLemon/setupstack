@@ -1,0 +1,39 @@
+@use "./mocha.scss" as *;
+
+$accent: $red;
+
+.audio {
+  color: $accent;
+}
+
+.audio-section-list-item-icon {
+  color: $subtext0;
+
+  &.active {
+    color: $accent;
+  }
+}
+
+.volume-item-container {
+  padding: 5px 0 5px 0;
+}
+
+.volume-item-icon {
+  color: $accent;
+  font-size: 1.2rem;
+}
+
+.volume-item-slider-tag {
+  font-size: 0.8rem;
+}
+
+.volume-item-slider {
+  trough {
+    min-width: 200px;
+
+    highlight {
+      background: $accent;
+    }
+  }
+
+}

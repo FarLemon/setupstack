@@ -1,3 +1,7 @@
+-- General Settings
+vim.opt["tabstop"] = 4 -- Set TAB character width
+vim.opt["shiftwidth"] = 4
+
 -- Automatically install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

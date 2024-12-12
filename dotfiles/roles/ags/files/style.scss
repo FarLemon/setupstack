@@ -1,20 +1,16 @@
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$theme_fg_color: "@theme_fg_color";
-$theme_bg_color: "@theme_bg_color";
+@use "./style/mocha.scss" as *;
 
-window.Bar {
-    background: transparent;
-    color: #{$theme_bg_color};
-    font-weight: bold;
+@use "./style/shared.scss";
+@use "./style/audio.scss";
+@use "./style/media.scss";
+@use "./style/window-title.scss";
+@use "./style/workspace.scss";
+@use "./style/calendar.scss";
+@use "./style/network.scss";
 
-    >centerbox {
-        background: #{$theme_bg_color};
-        border-radius: 10px;
-        margin: 8px;
-    }
-
-    button {
-        border-radius: 8px;
-        margin: 2px;
-    }
+* {
+  all: unset;
+  // font-family: "JetBrainsMono NFM";
+  font-family: "FantasqueSansM Nerd Font";
+  font-size: 12pt;
 }

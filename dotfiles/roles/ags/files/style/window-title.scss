@@ -1,0 +1,13 @@
+@use "./mocha.scss" as *;
+
+.window-title {
+  color: $blue;
+}
+
+.window-title-tag {
+  // font-family: 'JetBrainsMono Nerd Font', 'Noto Sans CJK JP';
+  font-family: 'Symbols Nerd Font Mono';
+  padding: 0;
+  margin: 0;
+  // font-size: 1.2rem;
+}
